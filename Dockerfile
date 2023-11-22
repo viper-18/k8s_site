@@ -1,5 +1,5 @@
 # Use a node image for building the application
-FROM node:14-alpine AS builder
+FROM fedora:latest
 
 WORKDIR /portfolio_site
 
@@ -9,10 +9,10 @@ COPY package-lock.json .
 
 # Install dependencies
 RUN npm install
-
+RUN npm run build
 # Copy the rest of the application files
 COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
