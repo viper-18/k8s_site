@@ -8,6 +8,7 @@ COPY package.json .
 COPY package-lock.json .
 
 # Copy the rest of the application files
+RUN npm install
 COPY . .
 
 EXPOSE 3000
